@@ -1,36 +1,40 @@
-# archivo de configuración para GitHub Actions
-# nombre del workflow
 name: DevOps
 
-# controles cuando el workflow corra
 on:
-  # Triggers cuando haya un push o una solicitud de pull request en la rama "main" 
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-  # Permite que el workflow se ejecute manualmente desde la pestaña de Actions en GitHub
   workflow_dispatch:
 
-
 jobs:
-  # Este workflow contiene un job llamado "build"
   build:
-    # Este job se ejecutará en un runner con el sistema operativo Ubuntu (la última versión disponible)
     runs-on: ubuntu-latest
-
-    # Tareas individuales que se ejecutaran en el job
     steps:
-      # Clona el repositorio en el runner para que los siguientes steps tengan acceso al código
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      # Ejecuta el comando echo Prueba, CI, que simplemente imprime "Prueba, CI" en la consola
       - name: Run a one-line script
         run: echo Prueba, CI
 
-      # Ejecuta dos comandos echo en secuencia. El primer comando imprime "Add other actions to build," y el segundo imprime "test, and deploy your project." en la consola
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # 👇 Este paso sube los archivos de la raíz como artefacto
+      - name: Subir archivos para GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      # 👇 Este paso despliega en GitHub Pages
+      - name: Desplegar en GitHub Pages
+        uses: actions/deploy-pages@v4
