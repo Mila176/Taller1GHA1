@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Biblioteca Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Sistema de Gestión de Biblioteca Digital</h1>
+            <p>Caso de Uso - Análisis de Sistemas</p>
+        </header>
+        
+        <div class="content">
+            <section id="introduccion">
+                <h2>1. Introducción</h2>
+                <p>
+                    El Sistema de Gestión de Biblioteca Digital es una plataforma web diseñada para modernizar 
+                    y automatizar los procesos tradicionales de una biblioteca. Este sistema permite a los usuarios 
+                    buscar, reservar y gestionar préstamos de libros de manera eficiente, mientras que los bibliotecarios 
+                    pueden administrar el inventario, usuarios y generar reportes estadísticos.
+                </p>
+            </section>
+            
+            <section id="objetivo">
+                <h2>2. Objetivo del Sistema</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🎯 Objetivo General</h4>
+                        <p>
+                            Desarrollar un sistema integral que facilite la gestión de recursos bibliotecarios 
+                            y mejore la experiencia de usuarios mediante herramientas digitales accesibles.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h4>✨ Objetivos Específicos</h4>
+                        <ul>
+                            <li>Automatizar el proceso de préstamo y devolución</li>
+                            <li>Facilitar la búsqueda de material bibliográfico</li>
+                            <li>Gestionar el inventario de libros en tiempo real</li>
+                            <li>Generar reportes de uso y estadísticas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="actores">
+                <h2>3. Actores del Sistema</h2>
+                <div class="actor-list">
+                    <div class="actor">👤 Usuario/Estudiante</div>
+                    <div class="actor">👨‍💼 Bibliotecario</div>
+                    <div class="actor">👨‍💻 Administrador del Sistema</div>
+                    <div class="actor">📧 Sistema de Notificaciones</div>
+                </div>
+                
+                <h3>Descripción de Actores:</h3>
+                <ul>
+                    <li><strong>Usuario/Estudiante:</strong> Persona que utiliza el sistema para buscar libros, realizar reservas y gestionar sus préstamos.</li>
+                    <li><strong>Bibliotecario:</strong> Encargado de procesar préstamos, devoluciones, gestionar el inventario y atender consultas.</li>
+                    <li><strong>Administrador del Sistema:</strong> Responsable de la configuración del sistema, gestión de usuarios y mantenimiento técnico.</li>
+                    <li><strong>Sistema de Notificaciones:</strong> Sistema automatizado que envía recordatorios y alertas a los usuarios.</li>
+                </ul>
+            </section>
+            
+            <section id="casos-uso">
+                <h2>4. Casos de Uso Principales</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Caso de Uso</th>
+                            <th>Actor Principal</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CU-01</td>
+                            <td>Registrar Usuario</td>
+                            <td>Usuario</td>
+                            <td>Permite a nuevos usuarios crear una cuenta en el sistema</td>
+                        </tr>
+                        <tr>
+                            <td>CU-02</td>
+                            <td>Buscar Libro</td>
+                            <td>Usuario</td>
+                            <td>Búsqueda de libros por título, autor, ISBN o categoría</td>
+                        </tr>
+                        <tr>
+                            <td>CU-03</td>
+                            <td>Reservar Libro</td>
+                            <td>Usuario</td>
+                            <td>Reservar un libro disponible para préstamo posterior</td>
+                        </tr>
+                        <tr>
+                            <td>CU-04</td>
+                            <td>Solicitar Préstamo</td>
+                            <td>Usuario/Bibliotecario</td>
+                            <td>Proceso de solicitud y autorización de préstamo de libros</td>
+                        </tr>
+                        <tr>
+                            <td>CU-05</td>
+                            <td>Devolver Libro</td>
+                            <td>Usuario/Bibliotecario</td>
+                            <td>Registrar la devolución de un libro prestado</td>
+                        </tr>
+                        <tr>
+                            <td>CU-06</td>
+                            <td>Renovar Préstamo</td>
+                            <td>Usuario</td>
+                            <td>Extender el período de préstamo de un libro</td>
+                        </tr>
+                        <tr>
+                            <td>CU-07</td>
+                            <td>Gestionar Inventario</td>
+                            <td>Bibliotecario</td>
+                            <td>Agregar, editar o eliminar libros del catálogo</td>
+                        </tr>
+                        <tr>
+                            <td>CU-08</td>
+                            <td>Generar Reportes</td>
+                            <td>Administrador</td>
+                            <td>Crear reportes estadísticos de uso y préstamos</td>
+                        </tr>
+                        <tr>
+                            <td>CU-09</td>
+                            <td>Gestionar Multas</td>
+                            <td>Bibliotecario</td>
+                            <td>Calcular y registrar multas por retrasos en devoluciones</td>
+                        </tr>
+                        <tr>
+                            <td>CU-10</td>
+                            <td>Enviar Notificaciones</td>
+                            <td>Sistema</td>
+                            <td>Enviar recordatorios de vencimiento y confirmaciones</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="caso-detallado">
+                <h2>5. Caso de Uso Detallado: Solicitar Préstamo</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>📋 Información Básica</h4>
+                        <p><strong>ID:</strong> CU-04</p>
+                        <p><strong>Nombre:</strong> Solicitar Préstamo de Libro</p>
+                        <p><strong>Actor Principal:</strong> Usuario</p>
+                        <p><strong>Actor Secundario:</strong> Bibliotecario, Sistema de Notificaciones</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🎯 Objetivo</h4>
+                        <p>
+                            Permitir que un usuario registrado pueda solicitar el préstamo de uno o más 
+                            libros disponibles en el catálogo de la biblioteca.
+                        </p>
+                    </div>
+                </div>
+                
+                <h3>Precondiciones:</h3>
+                <ul>
+                    <li>El usuario debe estar registrado y autenticado en el sistema</li>
+                    <li>El usuario no debe tener multas pendientes</li>
+                    <li>El libro debe estar disponible en el inventario</li>
+                    <li>El usuario no debe exceder el límite de préstamos simultáneos (máximo 3)</li>
+                </ul>
+                
+                <h3>Flujo Principal:</h3>
+                <ol>
+                    <li>El usuario inicia sesión en el sistema</li>
+                    <li>El usuario busca el libro deseado usando el motor de búsqueda</li>
+                    <li>El sistema muestra los resultados con la disponibilidad de cada libro</li>
+                    <li>El usuario selecciona el libro y hace clic en "Solicitar Préstamo"</li>
+                    <li>El sistema verifica las condiciones del usuario (multas, límite de préstamos)</li>
+                    <li>El sistema registra la solicitud y actualiza el estado del libro a "Prestado"</li>
+                    <li>El sistema genera un código de préstamo único</li>
+                    <li>El sistema envía una notificación al usuario confirmando el préstamo</li>
+                    <li>El sistema establece la fecha de devolución (14 días a partir del préstamo)</li>
+                    <li>El usuario recibe confirmación y puede retirar el libro en la biblioteca</li>
+                </ol>
+                
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA-01:</strong> Si el libro no está disponible, el sistema ofrece la opción de reservarlo</li>
+                    <li><strong>FA-02:</strong> Si el usuario tiene multas pendientes, el sistema bloquea el préstamo y muestra el monto a pagar</li>
+                    <li><strong>FA-03:</strong> Si el usuario alcanzó el límite de préstamos, el sistema muestra un mensaje informativo</li>
+                </ul>
+                
+                <h3>Postcondiciones:</h3>
+                <ul>
+                    <li>El libro queda registrado como prestado al usuario</li>
+                    <li>El inventario se actualiza reduciendo la disponibilidad</li>
+                    <li>Se genera un registro en el historial de préstamos</li>
+                    <li>El usuario recibe una notificación por correo electrónico</li>
+                </ul>
+            </section>
+            
+            <section id="requisitos">
+                <h2>6. Requisitos Funcionales</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Gestión de Usuarios</h4>
+                        <ul>
+                            <li>Registro de usuarios</li>
+                            <li>Autenticación y autorización</li>
+                            <li>Perfil de usuario editable</li>
+                            <li>Historial de préstamos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Gestión de Catálogo</h4>
+                        <ul>
+                            <li>CRUD de libros</li>
+                            <li>Categorización y etiquetado</li>
+                            <li>Búsqueda avanzada</li>
+                            <li>Control de inventario</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Gestión de Préstamos</h4>
+                        <ul>
+                            <li>Solicitud de préstamo</li>
+                            <li>Renovación de préstamo</li>
+                            <li>Devolución de libros</li>
+                            <li>Reservas de libros</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Sistema de Notificaciones</h4>
+                        <ul>
+                            <li>Recordatorios de vencimiento</li>
+                            <li>Confirmaciones de préstamo</li>
+                            <li>Alertas de disponibilidad</li>
+                            <li>Notificaciones de multas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="requisitos-no-funcionales">
+                <h2>7. Requisitos No Funcionales</h2>
+                <ul>
+                    <li><strong>Usabilidad:</strong> Interfaz intuitiva y responsive, accesible desde dispositivos móviles</li>
+                    <li><strong>Seguridad:</strong> Encriptación de datos sensibles, autenticación segura</li>
+                    <li><strong>Rendimiento:</strong> Tiempo de respuesta menor a 3 segundos para búsquedas</li>
+                    <li><strong>Disponibilidad:</strong> Sistema disponible 99.5% del tiempo</li>
+                    <li><strong>Escalabilidad:</strong> Capacidad para soportar hasta 10,000 usuarios concurrentes</li>
+                    <li><strong>Mantenibilidad:</strong> Código modular y documentado</li>
+                </ul>
+            </section>
+            
+            <section id="beneficios">
+                <h2>8. Beneficios del Sistema</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>⚡ Eficiencia</h3>
+                        <p>Reducción del tiempo de gestión en un 70%</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>📱 Accesibilidad</h3>
+                        <p>Acceso 24/7 desde cualquier dispositivo</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>📊 Control</h3>
+                        <p>Seguimiento en tiempo real del inventario</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>💰 Ahorro</h3>
+                        <p>Reducción de costos operativos</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tecnologias">
+                <h2>9. Tecnologías Propuestas</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Frontend</h4>
+                        <ul>
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>React.js o Vue.js</li>
+                            <li>Bootstrap o Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Backend</h4>
+                        <ul>
+                            <li>Node.js con Express</li>
+                            <li>Python con Django/Flask</li>
+                            <li>API RESTful</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Base de Datos</h4>
+                        <ul>
+                            <li>PostgreSQL o MySQL</li>
+                            <li>MongoDB (opcional)</li>
+                            <li>Redis para caché</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Otros</h4>
+                        <ul>
+                            <li>Git para control de versiones</li>
+                            <li>Docker para contenedores</li>
+                            <li>SendGrid para emails</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="conclusion">
+                <h2>10. Conclusión</h2>
+                <p>
+                    El Sistema de Gestión de Biblioteca Digital representa una solución moderna e integral para 
+                    las necesidades de bibliotecas educativas e institucionales. Al automatizar procesos manuales 
+                    y proporcionar acceso digital a los servicios, el sistema no solo mejora la eficiencia operativa, 
+                    sino que también enriquece la experiencia del usuario. La implementación de este sistema permitirá 
+                    a las bibliotecas mantenerse competitivas en la era digital, ofreciendo servicios de calidad que 
+                    satisfacen las expectativas de los usuarios modernos.
+                </p>
+            </section>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Sistema de Gestión de Biblioteca Digital | Caso de Uso - Análisis de Sistemas</p>
+            <p>Proyecto académico desarrollado para UNI CAMI</p>
+        </footer>
+    </div>
+</body>
+</html>
